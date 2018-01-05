@@ -24,9 +24,30 @@
 	</head>
 	<body class="landing">
 
+		<script>
+
+$(document).ready(function () {
+    $(".popup").hide();
+    $(".openpop").click(function (e) {
+        e.preventDefault();
+        $("iframe").attr("src", $(this).attr('href'));
+        $(".links").fadeOut('slow');
+        $(".popup").fadeIn('slow');
+    });
+
+    $(".close").click(function () {
+        $(this).parent().fadeOut("slow");
+        $(".links").fadeIn("slow");
+    });
+});
+
+
+</script>
 		<!-- Header -->
 			<header id="header">
-				<h1><a href="index.html">Watch a Sample Video</a></h1>
+				<div class="links">
+					<h1><a id="play-video" class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">Watch a Sample Video</a></h1>
+				</div>
 				<nav id="nav">
 					<ul>
 						<li><a href="index.html">Home</a></li>
@@ -51,6 +72,19 @@
 
 		<!-- Banner -->
 			<section id="banner">
+					<div class="wrapper" style="margin-top: -15%;">
+					<div class="popup">
+						<iframe style="width: 700px;height: 550px;" src="">
+						</iframe>
+						<a href="#" class="close">X</a>
+					</div>
+				</div>
+
+				<br />
+
+				<!--<iframe style="display:none" id="video" width="420" height="315" src="//www.youtube.com/embed/9B7te184ZpQ?rel=0" frameborder="0" allowfullscreen></iframe>-->
+
+
 				<h2>ASTACHEMMA</h2>
 				<p>The Traditional Indian Ludo Game </p>
 				<ul class="actions">
@@ -60,38 +94,6 @@
 				</ul>
 			</section>
 
-		<!-- One -->
-			<section id="one" class="wrapper style1 special">
-				<div class="container">
-					<header class="major">
-						<h2>About the game</h2>
-						<p>History of the game !</p>
-					</header>
-					<div class="row 150%">
-						<div class="4u 12u$(medium)">
-							<section class="box">
-								<i class="icon big rounded color1 fa-cloud"></i>
-								<h3>player statistics</h3>
-								<p>Achievements of the player and number of trophies</p>
-							</section>
-						</div>
-						<div class="4u 12u$(medium)">
-							<section class="box">
-								<i class="icon big rounded color9 fa-desktop"></i>
-								<h3>multi player game</h3>
-								<p>play with computer/2vs2</p>
-							</section>
-						</div>
-						<div class="4u$ 12u$(medium)">
-							<section class="box">
-								<i class="icon big rounded color6 fa-rocket"></i>
-								<h3>Boost your game</h3>
-								<p> Increase your chances</p>
-							</section>
-						</div>
-					</div>
-				</div>
-			</section>
 
 		<!-- Two -->
 			<section id="two" class="wrapper style2 special">
