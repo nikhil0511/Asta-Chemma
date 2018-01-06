@@ -21,7 +21,11 @@ var UserSchema = new mongoose.Schema({
     passwordConf: {
         type: String,
         required: true,
-    }
+    },
+    img: { data: Buffer, contentType: String },
+    game_played: { type:Number},
+    game_win: {type:Number},
+    game_lost: {type:Number}
 });
 
 //authenticate input against database

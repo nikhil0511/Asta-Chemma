@@ -30,7 +30,6 @@ app.use(session({
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 // serve static files from template
 app.use(express.static(__dirname + '/public'));
 
