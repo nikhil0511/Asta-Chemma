@@ -62,5 +62,17 @@ UserSchema.pre('save', function (next) {
 });
 
 
+UserSchema.pre('save', function (next) {
+    var user = this;
+    bcrypt.hash(user.passwordConf, 10, function (err, hash) {
+        if (err) {
+            return next(err);
+        }
+        user.passwordConf = hash;
+        next();
+    })
+});
+
+
 var User = mongoose.model('User', UserSchema);
 module.exports = User;

@@ -71,6 +71,23 @@ router.post('/', function (req, res, next) {
     }
 })
 
+router.get('/profile/alluser', function (req, res, next) {
+    User.find()
+        .exec(function (error, user) {
+            if (error) {
+                return next(error);
+            } else {
+                if (user === null) {
+                    var err = new Error('Not authorized! Go back!');
+                    err.status = 400;
+                    return next(err);
+                } else {
+                    res.send(user);
+                }
+            }
+        });
+});
+
 
 router.get('/profile/picture', function(req,res,next) {
     User.findById( req.session.userId).exec(function(err,user) {
