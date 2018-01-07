@@ -30,8 +30,8 @@
                             <tr ng-repeat="row in boardData.boardTheme">
                                 <td ng-repeat="col in row" class="gameCellBoxes" position="{{col.rowId}}_{{col.columnId}}" ng-class="{'crossedCell': !col.crossedCell, 'crossedCell': col.crossedCell}">
                                     <div ondrop="drop(event)" ondragover="allowDrop(event)">
-										{{col.rowId}}
-                                    	{{col.columnId}}
+										<!--{{col.rowId}}
+                                    	{{col.columnId}}-->
 									</div>
                                 </td>
                             </tr>
