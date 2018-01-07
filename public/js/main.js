@@ -121,7 +121,7 @@ app.controller("gameboard", ["$scope", function ($scope) {
 		if($scope.count.length == 0) {
 			$scope.playDisabled = false;
 		}
-	
+	};	
 $scope.allowDrop = function(ev){
 		ev.preventDefault();
     };
