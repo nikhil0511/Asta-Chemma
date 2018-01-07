@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-US">
+	<head>
+		<title>Astachemma</title>
+		<script type="text/javascript" src="plugins/Angular/angular.js"></script>
+        <script type="text/javascript" src="plugins/jQuery/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="plugins/jQuery/jquery-ui-1.12.0.js"></script>
+        <script type="text/javascript" src="plugins/bootstrap_3.3.6/js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="js/main.js" ></script>
+	
+        <link rel="stylesheet" href="plugins/bootstrap_3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="plugins/font-awesome/css/font-awesome.min.css" />
+        <link rel="stylesheet/less" type="text/css" href="css/style.less" />
+        
+        <script type="text/javascript" src="plugins/less/less.js"></script>
+        
+    </head>
+	<body ng-app="gameModule">
+		<div ng-controller="gameboard">
+            <div id="gameContainer">
+                <div id="gameFrame">
+                    <div id="gameBoard">
+                        <div id="firstPlayer" class="playerCoinJone" ng-init="(_Array = []).length = 8;">
+                            <span id="playerIcon_{{$index}}" class="playerCoinContainer playerIcon_{{$index}}" player="firstPlayer" startingPoint="0_4" currentPosition="-1_-1" ng-repeat="i in _Array track by $index" ng-class="{'hoveredCoin':hovering}" ng-mouseenter="hovering=true; coinHoverIn($event)" ng-mouseleave="hovering=false; coinHoverOut($event)" draggable="true" ondragstart="drag(event)">
+                                <img ng-src="images/white.png" />
+                            </span>
+                        </div>
+                        <table class="table table-bordered">
+                            <tr ng-repeat="row in boardData.boardTheme">
+                                <td ng-repeat="col in row" class="gameCellBoxes" position="{{col.rowId}}_{{col.columnId}}" ng-class="{'crossedCell': !col.crossedCell, 'crossedCell': col.crossedCell}">
+                                    <div ondrop="drop(event)" ondragover="allowDrop(event)">
+										{{col.rowId}}
+                                    	{{col.columnId}}
+									</div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div id="secondPlayer" class="playerCoinJone" ng-init="(_Array = []).length = 8;">
+                            <span id="playerIcon_{{$index}}" class="playerCoinContainer playerIcon_{{$index}}" player="secondPlayer" startingPoint="8_4" currentPosition="-1_-1" ng-repeat="i in _Array track by $index" ng-class="{'hoveredCoin':hovering}" ng-mouseenter="hovering=true; coinHoverIn($event)" ng-mouseleave="hovering=false; coinHoverOut($event)" draggable="true" ondragstart="drag(event)">
+                                <img ng-src="images/yellow.png" />
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div id="detailsBoard">
+<!--
+                    Details
+                    Welcome {{boardData.userName}}
+-->
+                    <div id="scoreBoard" class="row">
+                        <div class="scoreCard col-sm-2 col-md-2">
+                            <div class="scoreMark">0</div>
+                            <div class="scoreCount" ng-bind="zeroCount"></div>
+                        </div>
+                        <div class="scoreCard col-sm-2 col-md-2">
+                            <div class="scoreMark">1</div>
+                            <div class="scoreCount" ng-bind="oneCount"></div>
+                        </div>
+                        <div class="scoreCard col-sm-2 col-md-2">
+                            <div class="scoreMark">4</div>
+                            <div class="scoreCount" ng-bind="fourCount"></div>
+                        </div>
+                        <div class="scoreCard col-sm-2 col-md-2">
+                            <div class="scoreMark">6</div>
+                            <div class="scoreCount" ng-bind="sixCount"></div>
+                        </div>
+                        <div class="scoreCard col-sm-2 col-md-2">
+                            <div class="scoreMark">8</div>
+                            <div class="scoreCount" ng-bind="eightCount">0</div>
+                        </div>
+                        <div class="scoreCard col-sm-2 col-md-2">
+                            <div class="scoreMark">
+                                <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="scoreCount" ng-bind="otherNumber">0</div>
+                        </div>
+                    </div>
+                    <div id="playArea">
+                        <img class="selectedShellImage" ng-src='images/{{randowSelectedNumber}}.png' />
+                        
+                    </div>
+                    <div id="buttonContainer">
+                        <div class="coin gold" ng-class="{'playDisable': playDisabled, 'playEnable': !playDisabled}" ng-click="rollShellsFunc()"><p>Start</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>
