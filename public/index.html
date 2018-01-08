@@ -33,6 +33,7 @@
             e.preventDefault();
             $("iframe").attr("src", $(this).attr('href'));
             $(".popup").fadeIn('slow');
+            $("html, body").animate({ scrollTop: 0 }, "slow");
         });
         $(".close").click(function () {
             $(this).parent().fadeOut("slow");
@@ -112,7 +113,7 @@
 		<div class="popup">
 			<iframe style="width: 700px;height: 550px;" src="">
 			</iframe>
-			<a href="#" class="close">X</a>
+			<a href="#" style="position: relative;right: 282px;color: #f5f5f5" class="close">X</a>
 		</div>
 	</div>
 
@@ -124,7 +125,7 @@
 	<p>The Traditional Indian Ludo Game </p>
 	<ul class="actions">
 		<li>
-			<a href="#" class="button big">PlayGame</a>
+			<a href="#three" class="button big">PlayGame</a>
 		</li>
 	</ul>
 </section>
@@ -157,14 +158,6 @@
 
 			</div>
 		</section>
-		<footer>
-			<p> your moves decide your fate in the game,luck favours the intelligent</p>
-			<ul class="actions">
-				<li>
-					<a href="#" class="button big">Resume the Game</a>
-				</li>
-			</ul>
-		</footer>
 	</div>
 </section>
 
@@ -209,24 +202,24 @@
 				<section class="3u 6u(medium) 12u$(small)">
 
 					<ul class="unstyled">
-						<li><a href="#">Login information and Your Account</a></li>
+						<li><a href="#" onclick="showpopup()">Login</a></li>
+						<li><a href="#three">Sign Up</a></li>
 					</ul>
 				</section>
 				<section class="3u 6u$(medium) 12u$(small)">
 					<ul class="unstyled">
-						<li><a href="#">rules to follow</a></li>
-						<li><a href="#">Read the guidelines</a></li>
+						<li><a href="generic.html">Game rules</a></li>
 					</ul>
 				</section>
 				<section class="3u 6u(medium) 12u$(small)">
 					<ul class="unstyled">
-						<li><a href="#">take a tour of game</a></li>
+						<li><a class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">take a tour of sample game</a></li>
 					</ul>
 				</section>
 				<section class="3u$ 6u$(medium) 12u$(small)">
 					<ul class="unstyled">
-						<li><a href="#">problems in game</a></li>
-						<li><a href="#">understand the rules</a></li>
+						<li><a href="#two">Game Features</a></li>
+
 					</ul>
 				</section>
 			</div>
