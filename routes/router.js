@@ -10,6 +10,11 @@ router.get('/', function (req, res, next) {
     return res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+router.get('/chat', function(req, res){
+    console.log("Get for chat");
+    res.sendFile(path.join(__dirname + './../public/chat.html'));
+});
+
 var userNumber = Math.floor(Math.random() * 4) + 1;
 var imgPath = 'public/images/user'+userNumber+'.png';
 

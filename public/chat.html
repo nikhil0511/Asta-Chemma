@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <title>Socket.IO chat</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font: 13px Helvetica, Arial;background: #EFEFF0 }
+        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
+        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
+        form button { width: 9%; background: rgb(149, 158, 157); border: none; padding: 10px; }
+        #messages { list-style-type: none; margin: 0; padding: 10; }
+        #messages li { padding: 5px 10px;background: #DACFA3; }
+        #messages li:nth-child(odd) { background: #CFC5C2; }
+        #messages { margin-bottom: 40px }
+    </style>
+</head>
+<body>
+<ul id="messages">
+<form action="">
+    <input id="m" autocomplete="off" placeholder="Type your message here" /><button>Send</button>
+</form>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(function () {
+        var socket = io.connect('http://localhost:3000');
+        //$("#userName").load('/profile/username/');
+        $.get( "/profile/username/", function( data ) {
+            socket.emit('new_client', data);
+            console.log(data);
+        });
+        //console.log(username);
+        $('form').submit(function(){
+            //console.log("form submitted");
+            //socket.emit('new player', $('#name'));
+            socket.emit('chat message', $('#m').val());
+            //console.log("form skipped");
+            $('#m').val('');
+            return false;
+        });
+        socket.on('chat message', function(msg){
+            //console.log("message submitted");
+            $('#messages').append($('<li>').text(msg)).append(name);
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+    });
+</script>
+</ul>
+</body>
+</html>

@@ -1,5 +1,8 @@
 var express = require('express');
 var app = express();
+var http = require('http').createServer(app);
+var io = require('socket.io').listen(http);
+var port = process.env.PORT || 3000;
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
@@ -53,6 +56,27 @@ app.use(function (err, req, res, next) {
 
 
 // listen on port 3000
-app.listen(3000, function () {
-    console.log('Express app listening on port 3000');
+http.listen(port, function() {
+    console.log("port");
+    console.log('Express app listening on port:' + port);
+});
+
+//socket code for emitting and receiving mesages and names of connected users.
+io.sockets.on('connection', function (socket, data) {
+    var username='';
+    socket.on('new_client', function (data) {
+        /*name = ent.encode(name);*/
+        username = data;
+        console.log(data);
+        //socket.emit('new_client', data);
+    });
+    /*socket.on('connection', function (socket) {*/
+    socket.on('chat message', function (msg) {
+        //console.log(name);
+        io.emit('chat message', username + ': ' +msg);
+        console.log(msg);
+        socket.on('disconnect', function () {
+            console.log('user disconnected');
+        });
+    });
 });
