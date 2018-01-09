@@ -93,6 +93,17 @@ router.get('/profile/alluser', function (req, res, next) {
         });
 });
 
+router.get('/profile/picture/:username', function(req,res,next) {
+    User.findOne({username:req.params.username}).exec(function (err, user) {
+console.log(user);
+        if (err) return next(err);
+        else {
+            res.contentType('image/png'); //user.img.contentType
+            res.send(user.img.data);
+        }});
+});
+
+
 
 router.get('/profile/picture', function(req,res,next) {
     User.findById( req.session.userId).exec(function(err,user) {
