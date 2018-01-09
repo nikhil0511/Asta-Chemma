@@ -57,13 +57,13 @@ router.post('/', function (req, res, next) {
                 var smtpTransport = nodemailer.createTransport({
                     service: 'Gmail',
                     auth: {
-                        user: 'astachemma06@gmail.com',
+                        user: 'astachemmapm102@gmail.com',
                         pass: 'ac123123'
                     }
                 });
                 var mailOptions = {
                     to: to,
-                    from: 'astachemma06@gmail.com',
+                    from: 'astachemmapm102@gmail.com',
                     subject: 'Astachemma sign up Notification',
                     text: 'Thank you for registering for ASTA-CHEMMA Game\n'+
                     'Start playing the game by clicking on following link http://localhost:3000/game \n\n\n'+
