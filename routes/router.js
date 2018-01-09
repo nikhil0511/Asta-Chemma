@@ -4,7 +4,7 @@ var User = require('../models/user');
 var fs = require('fs');
 var path = require('path');
 var templatesjs = require('templatesjs');
-
+var nodemailer = require('nodemailer');//for sending mail
 // GET route for reading data
 router.get('/', function (req, res, next) {
     return res.sendFile(path.join(__dirname + '/public/index.html'));
