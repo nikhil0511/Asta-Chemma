@@ -51,7 +51,30 @@ router.post('/', function (req, res, next) {
         User.create(userData, function (error, user) {
             if (error) {
                 return next(error);
-            } else {
+            } else { //send mail for successful signup
+                var to = req.body.email;
+                console.log(to);
+                var smtpTransport = nodemailer.createTransport({
+                    service: 'Gmail',
+                    auth: {
+                        user: 'astachemma06@gmail.com',
+                        pass: 'ac123123'
+                    }
+                });
+                var mailOptions = {
+                    to: to,
+                    from: 'astachemma06@gmail.com',
+                    subject: 'Astachemma sign up Notification',
+                    text: 'Thank you for registering for ASTA-CHEMMA Game\n'+
+                    'Start playing the game by clicking on following link http://localhost:3000/game \n\n\n'+
+                    'FROM \n' + 'ASTACHEMMA TEAM'
+                };
+                smtpTransport.sendMail(mailOptions, function (error, info) {
+                    if (error) {
+                        console.log(error);
+                        res.sendFile(path.join(__dirname + './../public/index.html'));
+                    }
+                });
                 req.session.userId = user._id;
                 return res.redirect('/profile');
             }
