@@ -242,16 +242,14 @@ router.get('/profile/gamewin/', function (req, res, next) {
 
 
 // GET for logout logout
-router.post('/logout', function (req, res, next) {
+router.get('/logout', function (req, res, next) {
     if (req.session) {
         console.log('Session exist' +req.session);
         // delete session object
         req.session.destroy(function (err) {
-            if (err) {
-                return next(err);
-            } else {
-                return res.sendFile(path.join(__dirname + '/public/index.html'));
-            }
+                console.log('logout successful');
+            res.redirect('/')
+
         });
     }
 });
@@ -275,5 +273,7 @@ router.get('/user/gameplay', function (req, res) {
    
 
 });
+
+
 
 module.exports = router;
