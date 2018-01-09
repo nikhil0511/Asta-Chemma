@@ -53,6 +53,11 @@
             x.style.display = "none";
         }
     }
+	function increase () {
+
+    $.get( "/user/gameplay", function( data ) {
+    });
+ }
     $(function() {
         $("#email1").load("/profile/email");
         $("#user1").load("/profile/username/");
@@ -116,13 +121,12 @@
             </div>
 
             <div class="col-md-12 col-xs-12 login_control" style="height: 100px;">
-                <form action="/logout" method="post">
-                    <div align="center">
-                        <input class="btn btn-orange" type="submit"  name="Login" value="Logout"/>
-                    </div>
-                </form>
-            </div>
 
+        <div align="center">
+            <a class="btn btn-orange" type="submit" href='/logout'name="Login" >Logout</a>
+        </div>
+
+</div>
 
 
         </div>
@@ -143,15 +147,13 @@
     <br />
 
 
-
-    <h2>ASTACHEMMA</h2>
-    <p>The Traditional Indian Ludo Game </p>
-    <ul class="actions">
-        <li>
-            <a href="/game" class="button big">PlayGame</a>
-        </li>
-    </ul>
-
+<h2>ASTACHEMMA</h2>
+<p>The Traditional Indian Ludo Game </p>
+<ul class="actions">
+    <li>
+        <a href="#" class="button big" onclick="increase()">PlayGame</a>
+    </li>
+</ul>
 
 
 </section>
