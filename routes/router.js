@@ -183,6 +183,39 @@ router.get('/game', function (req, res, next) {
         });
 });
 
+router.get('/profile/gameplay/', function (req, res, next) {
+    User.findById(req.session.userId)
+        .exec(function (error, user) {
+            if (error) {
+                return next(error);
+            } else {
+                if (user === null) {
+                    var err = new Error('Not authorized! Go back!');
+                    err.status = 400;
+                    return next(err);
+                } else {
+                    res.send((user.game_played).toString());
+                }
+            }
+        });
+});
+
+router.get('/profile/gamewin/', function (req, res, next) {
+    User.findById(req.session.userId)
+        .exec(function (error, user) {
+            if (error) {
+                return next(error);
+            } else {
+                if (user === null) {
+                    var err = new Error('Not authorized! Go back!');
+                    err.status = 400;
+                    return next(err);
+                } else {
+                    res.send((user.game_win).toString());
+                }
+            }
+        });
+});
 
 
 // GET for logout logout
