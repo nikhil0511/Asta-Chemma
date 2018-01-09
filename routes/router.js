@@ -232,5 +232,25 @@ router.post('/logout', function (req, res, next) {
         });
     }
 });
+router.get('/user/gameplay', function (req, res) {
+    var user1;
+        User.findById(req.session.userId)
+        .exec(function (error, user) {
+            if (error) {
+                return (error);
+            } else {
+                    user.game_played++;
+                    user1 = user;
+         User.update({_id: req.session.userId}, {$set: user1} ,
+                    function (err, res) {
+                        if (err) return console.log(err);
+                        
+                    });
+                }
+
+        });
+   
+
+});
 
 module.exports = router;
