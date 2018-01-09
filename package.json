@@ -12,17 +12,23 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
     "ejs": "~2.5.7",
+    "ent": "^2.2.0",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
     "fs": "0.0.1-security",
     "jade": "^1.11.0",
     "mongoose": "^5.0.0-rc1",
     "morgan": "~1.9.0",
+    "node-pre-gyp": "^0.6.39",
+    "nodemailer": "^4.4.1",
     "path": "^0.12.7",
     "serve-favicon": "~2.4.5",
+    "sshpk": "^1.13.1",
+    "templatejs": "^1.0.0",
     "templatesjs": "^2.0.0"
   },
   "devDependencies": {
+    "ip": "^1.1.5",
     "socket.io": "^2.0.4"
   }
 }
