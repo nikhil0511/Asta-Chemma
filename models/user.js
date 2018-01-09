@@ -23,9 +23,9 @@ var UserSchema = new mongoose.Schema({
         required: true,
     },
     img: { data: Buffer, contentType: String },
-    game_played: { type:Number},
-    game_win: {type:Number},
-    game_lost: {type:Number}
+    game_played: { type:Number, default: 0},
+game_win: {type:Number, default: 0}
+
 });
 
 //authenticate input against database
