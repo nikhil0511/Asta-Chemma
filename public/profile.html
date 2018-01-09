@@ -57,6 +57,8 @@
         $("#email1").load("/profile/email");
         $("#user1").load("/profile/username/");
         $("#userImage").attr("src","/profile/picture");
+        $("#game_play").load("/profile/gameplay");
+        $("#game_won").load("/profile/gamewin");
         $.get("http://ipinfo.io", function(response) {
             console.log(response);
             $("#ip").html(response.ip);
@@ -102,14 +104,14 @@
                 <h1 style="position: relative;height: 40px;">Hi,<span id="user1"></span></h1>
                 <div id="address" style="height:24px;"></div><div id="email1"></div>
             </div>
-            <div class="col-md-6 col-xs-6 follow line" align="center">
+           <div class="col-md-6 col-xs-6 follow line" align="center">
                 <h3>
-                    125651 <br/> <span>Game Played</span>
+                    <span id="game_play"></span> <br/> <span>Game Played</span>
                 </h3>
             </div>
             <div class="col-md-6 col-xs-6 follow line" align="center">
                 <h3>
-                    125651 <br/> <span>Game Won</span>
+                    <span id="game_won"></span> <br/> <span>Game Won</span>
                 </h3>
             </div>
 
@@ -146,7 +148,7 @@
     <p>The Traditional Indian Ludo Game </p>
     <ul class="actions">
         <li>
-            <a href="#" class="button big">PlayGame</a>
+            <a href="/game" class="button big">PlayGame</a>
         </li>
     </ul>
 
@@ -227,93 +229,115 @@
 
 <!-- Three -->
 <section id="three" class="wrapper style3 special">
-    <div class="container">
-        <header class="major">
-            <h2>Sign up for the game</h2>
-            <p>please fill the following details</p>
-        </header>
-    </div>
-    <div class="container 50%">
-        <form action="/" method="post">
-            <div class="row uniform">
-                <div class="6u 12u$(small)">
-                    <input name="username" id="name" value="" placeholder="Name" type="text">
-                </div>
-                <div class="6u$ 12u$(small)">
-                    <input name="email" id="email" value="" placeholder="Email" type="email">
-                </div>
-                <div class="6u$ 12u$(small)">
-                    <input name="password" id="password" value="" placeholder="password" type="password">
-                </div>
-                <div class="6u$ 12u$(small)" style="clear: none;'">
-                    <input name="passwordConf" id=" password" value="" placeholder="confirm password" type="password">
-                </div>
-                <div class="12u$">
-                    <ul class="actions">
-                        <li><input value="Register" class="special big" type="submit"></li>
-                    </ul>
-                </div>
-            </div>
-        </form>
-    </div>
+
+<div class="container">
+    <header class="major">
+        <table id="location" border='1'>
+            <tr>
+                <th style="text-align:center">User</th>
+                <th style="text-align:center">User name</th>
+                <th style="text-align:center">Game Played</th>
+            </tr>
+
+        </table>
+    </header>
+</div>
 </section>
 
+<<script>
+
+    var service = 'http://localhost:3000';
+
+    $(document).ready(function(){
+
+        jQuery.support.cors = true;
+
+        $.ajax(
+            {
+                type: "GET",
+                url: service + '/profile/alluser',
+                data: "{}",
+         
+                success: function (data) {
+
+                    var trHTML = '';
+
+                    $.each(data, function (i, item) {
+                        
+                        var imageUrl='/profile/picture/'+data[i].username;
+
+
+                        trHTML += '<tr><td><img src="'+imageUrl+'"/></td><td>'+ data[i].username  + '</td><td>' + data[i].game_played ;
+         
+                     });
+                    $('#location').append(trHTML);
+
+                },
+
+                error: function (msg) {
+
+                    alert(msg.responseText);
+                }
+            });
+    })
+
+</script>
 <!-- Footer -->
 <footer id="footer">
-    <div class="container">
-        <section class="links">
-            <div class="row">
-                <section class="3u 6u(medium) 12u$(small)">
+	<div class="container">
+		<section class="links">
+			<div class="row">
+				<section class="3u 6u(medium) 12u$(small)">
 
-                    <ul class="unstyled">
-                        <li><a href="#">Login information and Your Account</a></li>
-                    </ul>
-                </section>
-                <section class="3u 6u$(medium) 12u$(small)">
-                    <ul class="unstyled">
-                        <li><a href="#">rules to follow</a></li>
-                        <li><a href="#">Read the guidelines</a></li>
-                    </ul>
-                </section>
-                <section class="3u 6u(medium) 12u$(small)">
-                    <ul class="unstyled">
-                        <li><a href="#">take a tour of game</a></li>
-                    </ul>
-                </section>
-                <section class="3u$ 6u$(medium) 12u$(small)">
-                    <ul class="unstyled">
-                        <li><a href="#">problems in game</a></li>
-                        <li><a href="#">understand the rules</a></li>
-                    </ul>
-                </section>
-            </div>
-        </section>
-        <div class="row">
-            <div class="8u 12u$(medium)">
-                <ul class="copyright">
-                    <li>&copy; Untitled. All rights reserved.</li>
-                    <li>Design: <a href="http://templated.co">astachemma</a></li>
-                    <li>Images: <a href="http://unsplash.com">Unsplash</a></li>
-                </ul>
-            </div>
-            <div class="4u$ 12u$(medium)">
-                <ul class="icons">
-                    <li>
-                        <a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
-                    </li>
-                    <li>
-                        <a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
-                    </li>
-                    <li>
-                        <a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
-                    </li>
-                    <li>
-                        <a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+					<ul class="unstyled">
+						<li><a href="#" onclick="showpopup()">Login</a></li>
+						<li><a href="#three">Sign Up</a></li>
+					</ul>
+				</section>
+				<section class="3u 6u$(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a href="generic.html">Game rules</a></li>
+					</ul>
+				</section>
+				<section class="3u 6u(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">take a tour of sample game</a></li>
+					</ul>
+				</section>
+				<section class="3u$ 6u$(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a href="#two">Game Features</a></li>
+
+					</ul>
+				</section>
+			</div>
+		</section>
+		<div class="row">
+			<div class="8u 12u$(medium)">
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li>
+					<li>Design: <a href="http://templated.co">astachemma</a></li>
+					<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+				</ul>
+			</div>
+			<div class="4u$ 12u$(medium)">
+				<ul class="icons">
+					<li>
+						<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </footer>
 
 </body>
