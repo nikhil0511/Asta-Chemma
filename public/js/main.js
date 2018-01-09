@@ -4,6 +4,8 @@ app.controller("gameboard", ["$scope", function ($scope) {
     $scope.nextAttemptChance = [0, 1, 4, 6, 8];
     $scope.playDisabled = false;
     $scope.randowSelectedNumber = 0;
+    $scope.x = 16;
+    $scope.y = 11;
     $scope.zeroCount = 0;
     $scope.oneCount = 0;
     $scope.fourCount = 0;
@@ -38,15 +40,35 @@ app.controller("gameboard", ["$scope", function ($scope) {
     };
 	
 	$scope.findToBeHoveredCell = function(currentPosition, strikeValue) {
-		var newIndexValue = currentPosition;
-		if(($scope.gameMoves.firstLevel.indexOf(currentPosition) + strikeValue) >= $scope.gameMoves.firstLevel.length) {
-			newIndexValue = ($scope.gameMoves.firstLevel.indexOf(currentPosition) + strikeValue) - $scope.gameMoves.firstLevel.length;
-		} else {
-			newIndexValue = $scope.gameMoves.firstLevel.indexOf(currentPosition) + strikeValue;
-		}
-		angular.element(document.querySelectorAll('td[position="'+$scope.gameMoves.firstLevel[newIndexValue]+'"] div')).addClass('canDrop');
-		$scope.canCoinDropArray.push({"position" : $scope.gameMoves.firstLevel[newIndexValue], "strikeValue":strikeValue});
-	}
+        var newIndexValue = currentPosition;
+        if(strikeValue == 0){
+            if(($scope.gameMoves.firstLevel.indexOf(currentPosition) + (strikeValue+$scope.x)) >= $scope.gameMoves.firstLevel.length) {
+                newIndexValue = ($scope.gameMoves.firstLevel.indexOf(currentPosition) + (strikeValue+$scope.x)) - $scope.gameMoves.firstLevel.length;
+            } else {
+                newIndexValue = $scope.gameMoves.firstLevel.indexOf(currentPosition) + (strikeValue+$scope.x);
+            }
+            angular.element(document.querySelectorAll('td[position="'+$scope.gameMoves.firstLevel[newIndexValue]+'"] div')).addClass('canDrop');
+            $scope.canCoinDropArray.push({"position" : $scope.gameMoves.firstLevel[newIndexValue], "strikeValue":strikeValue});
+        }
+        else if(strikeValue == 1){
+            if(($scope.gameMoves.firstLevel.indexOf(currentPosition) + (strikeValue+$scope.y)) >= $scope.gameMoves.firstLevel.length) {
+                newIndexValue = ($scope.gameMoves.firstLevel.indexOf(currentPosition) + (strikeValue+$scope.y)) - $scope.gameMoves.firstLevel.length;
+            } else {
+                newIndexValue = $scope.gameMoves.firstLevel.indexOf(currentPosition) + (strikeValue+$scope.y);
+            }
+            angular.element(document.querySelectorAll('td[position="'+$scope.gameMoves.firstLevel[newIndexValue]+'"] div')).addClass('canDrop');
+            $scope.canCoinDropArray.push({"position" : $scope.gameMoves.firstLevel[newIndexValue], "strikeValue":strikeValue});
+        }
+        else{
+            if(($scope.gameMoves.firstLevel.indexOf(currentPosition) + strikeValue) >= $scope.gameMoves.firstLevel.length) {
+                newIndexValue = ($scope.gameMoves.firstLevel.indexOf(currentPosition) + strikeValue) - $scope.gameMoves.firstLevel.length;
+            } else {
+                newIndexValue = $scope.gameMoves.firstLevel.indexOf(currentPosition) + strikeValue;
+            }
+            angular.element(document.querySelectorAll('td[position="'+$scope.gameMoves.firstLevel[newIndexValue]+'"] div')).addClass('canDrop');
+            $scope.canCoinDropArray.push({"position" : $scope.gameMoves.firstLevel[newIndexValue], "strikeValue":strikeValue});
+        }
+    };
     $scope.coinHoverOut = function(event){
 		angular.element(document.querySelectorAll('td div.canDrop')).removeClass("canDrop");
 		$scope.canCoinDropArray = [];
