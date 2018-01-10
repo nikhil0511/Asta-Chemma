@@ -87,7 +87,659 @@
     <nav id="nav">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="generic.html">Gamerules</a></li>
+            <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASTACHEMMA GAME</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-xlarge.css" />
+    </noscript>
+</head>
+<body class="landing">
+
+
+<script>
+    $(document).ready(function () {
+        $(".popup").hide();
+        $(".openpop").click(function (e) {
+            e.preventDefault();
+            $("iframe").attr("src", $(this).attr('href'));
+            $(".popup").fadeIn('slow');
+        });
+        $(".close").click(function () {
+            $(this).parent().fadeOut("slow");
+            $("#ytplayer").attr('src','');
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    function showpopup () {
+        var x = document.getElementById("loginBox");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    $(function() {
+        $("#email1").load("/profile/email");
+        $("#user1").load("/profile/username/");
+        $("#userImage").attr("src","/profile/picture");
+        $("#game_play").load("/profile/gameplay");
+        $("#game_won").load("/profile/gamewin");
+        $.get("http://ipinfo.io", function(response) {
+            console.log(response);
+            $("#ip").html(response.ip);
+            $("#address").html(response.city + ", " + response.region);
+        }, "jsonp");
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        $('#time >h3').text(strTime);
+    });
+</script>
+
+<!-- Header -->
+<header id="header">
+    <div class="links">
+        <h1><a id="play-video" class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">Watch a Sample Video</a></h1>
+    </div>
+
+
+
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASTACHEMMA GAME</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.js"
+            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+            crossorigin="anonymous"></script>
+    <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+        <link rel="stylesheet" href="css/skel.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/style-xlarge.css" />
+    </noscript>
+</head>
+<body class="landing">
+
+
+<script>
+    $(document).ready(function () {
+        $(".popup").hide();
+        $(".openpop").click(function (e) {
+            e.preventDefault();
+            $("iframe").attr("src", $(this).attr('href'));
+            $(".popup").fadeIn('slow');
+        });
+        $(".close").click(function () {
+            $(this).parent().fadeOut("slow");
+            $("#ytplayer").attr('src','');
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    function showpopup () {
+        var x = document.getElementById("loginBox");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+    $(function() {
+        $("#email1").load("/profile/email");
+        $("#user1").load("/profile/username/");
+        $("#userImage").attr("src","/profile/picture");
+        $("#game_play").load("/profile/gameplay");
+        $("#game_won").load("/profile/gamewin");
+        $.get("http://ipinfo.io", function(response) {
+            console.log(response);
+            $("#ip").html(response.ip);
+            $("#address").html(response.city + ", " + response.region);
+        }, "jsonp");
+        var date = new Date();
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var ampm = hours >= 12 ? 'pm' : 'am';
+        hours = hours % 12;
+        hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+minutes : minutes;
+        var strTime = hours + ':' + minutes + ' ' + ampm;
+        $('#time >h3').text(strTime);
+    });
+</script>
+
+<!-- Header -->
+<header id="header">
+    <div class="links">
+        <h1><a id="play-video" class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">Watch a Sample Video</a></h1>
+    </div>
+
+
+
+    <nav id="nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <!--<li><a href="generic.html">Gamerules</a></li>-->
+            <li><a href="#three">Score card</a></li>
+            <li><a id="chat" class="openpop" href="chat.html">Chat</a></li> <!--chat tab for chatting with connected playesrs.-->
+            <li><a href="" class="signin button special" onclick="showpopup()">My Details</a></li>
+
+
+        </ul>
+
+    </nav>
+    <div class="container" id="loginBox" style="display:none;margin-right: 30px;margin-top: 70px;width: 1000px;">
+        <div class="row login_box">
+            <div class="col-md-12 col-xs-12" align="center">
+                <div class="line" id="time"><h3></h3></div>
+                <div class="outter"><img id="userImage" src="/profile/picture" class="image-circle"/></div>
+                <h1 style="position: relative;height: 40px;">Hi,<span id="user1"></span></h1>
+                <div id="address" style="height:24px;"></div><div id="email1"></div>
+            </div>
+           <div class="col-md-6 col-xs-6 follow line" align="center">
+                <h3>
+                    <span id="game_play"></span> <br/> <span>Game Played</span>
+                </h3>
+            </div>
+            <div class="col-md-6 col-xs-6 follow line" align="center">
+                <h3>
+                    <span id="game_won"></span> <br/> <span>Game Won</span>
+                </h3>
+            </div>
+
+            <div class="col-md-12 col-xs-12 login_control" style="height: 100px;">
+
+        <div align="center">
+            <a class="btn btn-orange" type="submit" href='/logout'name="Login" >Logout</a>
+        </div>
+
+</div>
+
+
+        </div>
+    </div>
+</header>
+
+<!-- Banner -->
+<section id="banner">
+
+    <div class="wrapper" style="margin-top: -15%;">
+        <div class="popup">
+            <iframe style="width: 700px;height: 550px;" src="">
+            </iframe>
+            <a href="#" style="position: relative;right: 282px;color: #f5f5f5" class="close">X</a>
+        </div>
+    </div>
+
+    <br />
+
+
+<h2>ASTACHEMMA</h2>
+<p>The Traditional Indian Ludo Game </p>
+<ul class="actions">
+    <li>
+        <a href="/game" class="button big">PlayGame</a>
+    </li>
+</ul>
+
+
+</section>
+
+<!-- One -->
+<section id="one" class="wrapper style1 special">
+    <div class="container">
+        <header class="major">
+            <h2>About the game</h2>
+            <p>History of the game !</p>
+        </header>
+        <div class="row 150%">
+            <div class="4u 12u$(medium)">
+                <section class="box">
+                    <i class="icon big rounded color1 fa-cloud"></i>
+                    <h3>player statistics</h3>
+                    <p>Achievements of the player and number of trophies</p>
+                </section>
+            </div>
+            <div class="4u 12u$(medium)">
+                <section class="box">
+                    <i class="icon big rounded color9 fa-desktop"></i>
+                    <h3>multi player game</h3>
+                    <p>play with computer/2vs2</p>
+                </section>
+            </div>
+            <div class="4u$ 12u$(medium)">
+                <section class="box">
+                    <i class="icon big rounded color6 fa-rocket"></i>
+                    <h3>Boost your game</h3>
+                    <p> Increase your chances</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Two -->
+<section id="two" class="wrapper style2 special">
+    <div class="container">
+        <header class="major">
+            <h2>Luck decides your Game</h2>
+            <p>just roll your dice</p>
+        </header>
+        <section class="profiles">
+            <div class="row">
+                <section class="3u 6u(medium) 12u$(xsmall) profile">
+                    <img src="images/8.png" alt="" />
+                    <h4> 8 shells acts as dice</h4>
+                    <p style="margin-left: 3em">Dice value changes with face of the shells</p>
+                </section>
+                <section class="3u 6u$(medium) 12u$(xsmall) profile">
+                    <img src="images/board.png" alt="" />
+                    <h4>9*9 board </h4>
+                    <p style="margin-left: 3em">In 5th level you reach finishing point</p>
+                </section>
+                <section class="3u 6u(medium) 12u$(xsmall) profile">
+                    <img src="images/coins.jpg" alt="" />
+                    <h4> Each player will have 8 coins</h4>
+                    <p style="margin-left: 3em">Ultimate target is making them reach winning point</p>
+                </section>
+
+            </div>
+        </section>
+        <footer>
+            <p> your moves decide your fate in the game,luck favours the intelligent</p>
+            <ul class="actions">
+                <li>
+                    <a href="#" class="button big">Resume the Game</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</section>
+
+<!-- Three -->
+<section id="three" class="wrapper style3 special">
+
+<div class="container">
+    <header class="major">
+        <table id="location" border='1'>
+            <tr>
+                <th style="text-align:center">User</th>
+                <th style="text-align:center">User name</th>
+                <th style="text-align:center">Game Played</th>
+            </tr>
+
+        </table>
+    </header>
+</div>
+</section>
+
+<<script>
+    var service = 'http://localhost:3000';
+    $(document).ready(function(){
+        jQuery.support.cors = true;
+        $.ajax(
+            {
+                type: "GET",
+                url: service + '/profile/alluser',
+                data: "{}",
+         
+                success: function (data) {
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        
+                        var imageUrl='/profile/picture/'+data[i].username;
+                        trHTML += '<tr><td><img src="'+imageUrl+'"/></td><td>'+ data[i].username  + '</td><td>' + data[i].game_played ;
+         
+                     });
+                    $('#location').append(trHTML);
+                },
+                error: function (msg) {
+                    alert(msg.responseText);
+                }
+            });
+    })
+</script>
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<section class="links">
+			<div class="row">
+				<section class="3u 6u(medium) 12u$(small)">
+
+					<ul class="unstyled">
+						<li><a href="#" onclick="showpopup()">Login</a></li>
+						<li><a href="#three">Sign Up</a></li>
+					</ul>
+				</section>
+				<section class="3u 6u$(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a href="generic.html">Game rules</a></li>
+					</ul>
+				</section>
+				<section class="3u 6u(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">take a tour of sample game</a></li>
+					</ul>
+				</section>
+				<section class="3u$ 6u$(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a href="#two">Game Features</a></li>
+
+					</ul>
+				</section>
+			</div>
+		</section>
+		<div class="row">
+			<div class="8u 12u$(medium)">
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li>
+					<li>Design: <a href="http://templated.co">astachemma</a></li>
+					<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+				</ul>
+			</div>
+			<div class="4u$ 12u$(medium)">
+				<ul class="icons">
+					<li>
+						<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
+            <li><a href="#three">Score card</a></li>
+            <li><a id="chat" class="openpop" href="chat.html">Chat</a></li> <!--chat tab for chatting with connected playesrs.-->
+            <li><a href="" class="signin button special" onclick="showpopup()">My Details</a></li>
+
+
+        </ul>
+
+    </nav>
+    <div class="container" id="loginBox" style="display:none;margin-right: 30px;margin-top: 70px;width: 1000px;">
+        <div class="row login_box">
+            <div class="col-md-12 col-xs-12" align="center">
+                <div class="line" id="time"><h3></h3></div>
+                <div class="outter"><img id="userImage" src="/profile/picture" class="image-circle"/></div>
+                <h1 style="position: relative;height: 40px;">Hi,<span id="user1"></span></h1>
+                <div id="address" style="height:24px;"></div><div id="email1"></div>
+            </div>
+           <div class="col-md-6 col-xs-6 follow line" align="center">
+                <h3>
+                    <span id="game_play"></span> <br/> <span>Game Played</span>
+                </h3>
+            </div>
+            <div class="col-md-6 col-xs-6 follow line" align="center">
+                <h3>
+                    <span id="game_won"></span> <br/> <span>Game Won</span>
+                </h3>
+            </div>
+
+            <div class="col-md-12 col-xs-12 login_control" style="height: 100px;">
+
+        <div align="center">
+            <a class="btn btn-orange" type="submit" href='/logout'name="Login" >Logout</a>
+        </div>
+
+</div>
+
+
+        </div>
+    </div>
+</header>
+
+<!-- Banner -->
+<section id="banner">
+
+    <div class="wrapper" style="margin-top: -15%;">
+        <div class="popup">
+            <iframe style="width: 700px;height: 550px;" src="">
+            </iframe>
+            <a href="#" style="position: relative;right: 282px;color: #f5f5f5" class="close">X</a>
+        </div>
+    </div>
+
+    <br />
+
+
+<h2>ASTACHEMMA</h2>
+<p>The Traditional Indian Ludo Game </p>
+<ul class="actions">
+    <li>
+        <a href="/game" class="button big">PlayGame</a>
+    </li>
+</ul>
+
+
+</section>
+
+<!-- One -->
+<section id="one" class="wrapper style1 special">
+    <div class="container">
+        <header class="major">
+            <h2>About the game</h2>
+            <p>History of the game !</p>
+        </header>
+        <div class="row 150%">
+            <div class="4u 12u$(medium)">
+                <section class="box">
+                    <i class="icon big rounded color1 fa-cloud"></i>
+                    <h3>player statistics</h3>
+                    <p>Achievements of the player and number of trophies</p>
+                </section>
+            </div>
+            <div class="4u 12u$(medium)">
+                <section class="box">
+                    <i class="icon big rounded color9 fa-desktop"></i>
+                    <h3>multi player game</h3>
+                    <p>play with computer/2vs2</p>
+                </section>
+            </div>
+            <div class="4u$ 12u$(medium)">
+                <section class="box">
+                    <i class="icon big rounded color6 fa-rocket"></i>
+                    <h3>Boost your game</h3>
+                    <p> Increase your chances</p>
+                </section>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Two -->
+<section id="two" class="wrapper style2 special">
+    <div class="container">
+        <header class="major">
+            <h2>Luck decides your Game</h2>
+            <p>just roll your dice</p>
+        </header>
+        <section class="profiles">
+            <div class="row">
+                <section class="3u 6u(medium) 12u$(xsmall) profile">
+                    <img src="images/8.png" alt="" />
+                    <h4> 8 shells acts as dice</h4>
+                    <p style="margin-left: 3em">Dice value changes with face of the shells</p>
+                </section>
+                <section class="3u 6u$(medium) 12u$(xsmall) profile">
+                    <img src="images/board.png" alt="" />
+                    <h4>9*9 board </h4>
+                    <p style="margin-left: 3em">In 5th level you reach finishing point</p>
+                </section>
+                <section class="3u 6u(medium) 12u$(xsmall) profile">
+                    <img src="images/coins.jpg" alt="" />
+                    <h4> Each player will have 8 coins</h4>
+                    <p style="margin-left: 3em">Ultimate target is making them reach winning point</p>
+                </section>
+
+            </div>
+        </section>
+        <footer>
+            <p> your moves decide your fate in the game,luck favours the intelligent</p>
+            <ul class="actions">
+                <li>
+                    <a href="#" class="button big">Resume the Game</a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</section>
+
+<!-- Three -->
+<section id="three" class="wrapper style3 special">
+
+<div class="container">
+    <header class="major">
+        <table id="location" border='1'>
+            <tr>
+                <th style="text-align:center">User</th>
+                <th style="text-align:center">User name</th>
+                <th style="text-align:center">Game Played</th>
+            </tr>
+
+        </table>
+    </header>
+</div>
+</section>
+
+<<script>
+    var service = 'http://localhost:3000';
+    $(document).ready(function(){
+        jQuery.support.cors = true;
+        $.ajax(
+            {
+                type: "GET",
+                url: service + '/profile/alluser',
+                data: "{}",
+         
+                success: function (data) {
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                        
+                        var imageUrl='/profile/picture/'+data[i].username;
+                        trHTML += '<tr><td><img src="'+imageUrl+'"/></td><td>'+ data[i].username  + '</td><td>' + data[i].game_played ;
+         
+                     });
+                    $('#location').append(trHTML);
+                },
+                error: function (msg) {
+                    alert(msg.responseText);
+                }
+            });
+    })
+</script>
+<!-- Footer -->
+<footer id="footer">
+	<div class="container">
+		<section class="links">
+			<div class="row">
+				<section class="3u 6u(medium) 12u$(small)">
+
+					<ul class="unstyled">
+						<li><a href="#" onclick="showpopup()">Login</a></li>
+						<li><a href="#three">Sign Up</a></li>
+					</ul>
+				</section>
+				<section class="3u 6u$(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a href="generic.html">Game rules</a></li>
+					</ul>
+				</section>
+				<section class="3u 6u(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">take a tour of sample game</a></li>
+					</ul>
+				</section>
+				<section class="3u$ 6u$(medium) 12u$(small)">
+					<ul class="unstyled">
+						<li><a href="#two">Game Features</a></li>
+
+					</ul>
+				</section>
+			</div>
+		</section>
+		<div class="row">
+			<div class="8u 12u$(medium)">
+				<ul class="copyright">
+					<li>&copy; Untitled. All rights reserved.</li>
+					<li>Design: <a href="http://templated.co">astachemma</a></li>
+					<li>Images: <a href="http://unsplash.com">Unsplash</a></li>
+				</ul>
+			</div>
+			<div class="4u$ 12u$(medium)">
+				<ul class="icons">
+					<li>
+						<a class="icon rounded fa-facebook"><span class="label">Facebook</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-twitter"><span class="label">Twitter</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-google-plus"><span class="label">Google+</span></a>
+					</li>
+					<li>
+						<a class="icon rounded fa-linkedin"><span class="label">LinkedIn</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+</body>
+</html>
             <li><a href="#three">Score card</a></li>
             <li><a id="chat" class="openpop" href="chat.html">Chat</a></li> <!--chat tab for chatting with connected playesrs.-->
             <li><a href="" class="signin button special" onclick="showpopup()">My Details</a></li>
