@@ -14,6 +14,56 @@ router.get('/chat', function(req, res){
     console.log("Get for chat");
     res.sendFile(path.join(__dirname + './../public/chat.html'));
 });
+router.get('/forgot_password', function(req, res){
+    console.log("Get for chat");
+    res.sendFile(path.join(__dirname + './../public/forgot_password.html'));
+});
+
+router.post('/forgot_password', function (req, res) {
+    //var mail=req.body.email;
+    User.findOne({email:req.body.email}).exec(function (err, user) {
+        console.log(user);
+        if (err) {
+            console.log(err);
+
+        }
+        else if(user == null) {
+            console.log('Invalid Emailid');
+            return res.sendFile(path.join(__dirname + './../public/forgot_password.html'));
+        }
+        else{
+            var to = req.body.email;
+            console.log(to);
+            var smtpTransport = nodemailer.createTransport({
+                service: 'Gmail',
+                auth: {
+                    user: 'astachemmapm102@gmail.com',
+                    pass: 'ac123123'
+                }
+            });
+            var mailOptions = {
+                to: to,
+                from: 'astachemmapm102@gmail.com',
+                subject: 'Astachemma reset password',
+                text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+                'If you did not request this, please ignore this email and your password will remain unchanged.\n\n\n'+
+                'FROM \n' + 'ASTACHEMMA TEAM'
+            };
+            smtpTransport.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    res.sendFile(path.join(__dirname + './../public/forgot_password.html'));
+                }
+                else {
+                    console.log('Email sent: ' + info.response);
+                    /*res.sendFile(path.join(__dirname + './../public/index.html'));*/
+                    return res.sendFile(path.join(__dirname + './../public/index.html'));
+                    window.alert('Mail successfully sent');
+                }
+            });
+        }
+    });
+});
 
 var userNumber = Math.floor(Math.random() * 4) + 1;
 var imgPath = 'public/images/user'+userNumber+'.png';
