@@ -20,10 +20,37 @@
                 });
             });
         </script>
-        
+         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+        <script
+                src="https://code.jquery.com/jquery-3.2.1.js"
+                integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+                crossorigin="anonymous"></script>
+        <!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
+        <script src="js/skel.min.js"></script>
+        <script src="js/skel-layers.min.js"></script>
+        <script src="js/init.js"></script>
+        <noscript>
+            <link rel="stylesheet" href="css/skel.css" />
+            <link rel="stylesheet" href="css/style.css" />
+            <link rel="stylesheet" href="css/style-xlarge.css" />
+        </noscript>
     </head>
     <body ng-app="gameModule">
-		<div ng-controller="gameboard">
+	<header id="header">
+        	<div class="links">
+            		<h1><a id="play-video" class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">Watch a Sample Video</a></h1>
+        	</div>
+        	<nav id="nav">
+            		<ul>
+                	<li><a href="/profile.html">Back</a></li>
+              		</ul>
+        	</nav>
+	</header>    
+	    <div ng-controller="gameboard">
             <div id="gameContainer">
                 <div id="gameFrame">
                     <div id="gameBoard">
@@ -43,7 +70,17 @@
                             </tr>
                         </table>
                         <div id="secondPlayer" class="playerCoinJone" ng-init="(_Array = []).length = 8;">
-                            <span id="playerIcon_{{$index}}" class="playerCoinContainer playerIcon_{{$index}}" player="secondPlayer" startingPoint="8_4" currentPosition="-1_-1" ng-repeat="i in _Array track by $index" ng-class="{'hoveredCoin':hovering}" ng-mouseenter="hovering=true; coinHoverIn($event)" ng-mouseleave="hovering=false; coinHoverOut($event)" draggable="true" ondragstart="drag(event)">
+                   <header id="header">
+	        <div class="links">
+    		        <h1><a id="play-video" class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">Watch a Sample Video</a></h1>
+  	      </div>
+	        <nav id="nav">
+    	    	    <ul>
+        	        <li><a href="/profile.html">Back</a></li>
+      		        </ul>
+  	      </nav>
+</header>    
+				<span id="playerIcon_{{$index}}" class="playerCoinContainer playerIcon_{{$index}}" player="secondPlayer" startingPoint="8_4" currentPosition="-1_-1" ng-repeat="i in _Array track by $index" ng-class="{'hoveredCoin':hovering}" ng-mouseenter="hovering=true; coinHoverIn($event)" ng-mouseleave="hovering=false; coinHoverOut($event)" draggable="true" ondragstart="drag(event)">
                                 <img ng-src="images/yellow.png" />
                             </span>
                         </div>
