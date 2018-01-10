@@ -22,20 +22,7 @@
         </script>
         
     </head>
-    <script>
-        var user_id = 5; //hardcoded for now, but in real its fetched from a form
-        var params = {
-            userId: user_id,
-        };
-        // create a new websocket
-        var socket = io.connect('http://localhost:3000', { query: params });
-
-        // on message received we print all the data inside the #container div
-        socket.on('notification', function (data) {
-            console.log(data);
-        });
-    </script>
-	<body ng-app="gameModule">
+    <body ng-app="gameModule">
 		<div ng-controller="gameboard">
             <div id="gameContainer">
                 <div id="gameFrame">
