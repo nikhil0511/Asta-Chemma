@@ -70,17 +70,7 @@
                             </tr>
                         </table>
                         <div id="secondPlayer" class="playerCoinJone" ng-init="(_Array = []).length = 8;">
-                   <header id="header">
-	        <div class="links">
-    		        <h1><a id="play-video" class="openpop" href="https://www.youtube.com/embed/DjNBCjF0X0E">Watch a Sample Video</a></h1>
-  	      </div>
-	        <nav id="nav">
-    	    	    <ul>
-        	        <li><a href="/profile.html">Back</a></li>
-      		        </ul>
-  	      </nav>
-</header>    
-				<span id="playerIcon_{{$index}}" class="playerCoinContainer playerIcon_{{$index}}" player="secondPlayer" startingPoint="8_4" currentPosition="-1_-1" ng-repeat="i in _Array track by $index" ng-class="{'hoveredCoin':hovering}" ng-mouseenter="hovering=true; coinHoverIn($event)" ng-mouseleave="hovering=false; coinHoverOut($event)" draggable="true" ondragstart="drag(event)">
+         		<span id="playerIcon_{{$index}}" class="playerCoinContainer playerIcon_{{$index}}" player="secondPlayer" startingPoint="8_4" currentPosition="-1_-1" ng-repeat="i in _Array track by $index" ng-class="{'hoveredCoin':hovering}" ng-mouseenter="hovering=true; coinHoverIn($event)" ng-mouseleave="hovering=false; coinHoverOut($event)" draggable="true" ondragstart="drag(event)">
                                 <img ng-src="images/yellow.png" />
                             </span>
                         </div>
