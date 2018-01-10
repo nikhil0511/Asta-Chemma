@@ -10,6 +10,7 @@ Wait for console messages to confirm successful starting of server
 
 Go to browser and open loclahost:3000
 
+It is an Indian multiplayer game. Each player has 8 coins and wins if all coins reach center of the board. Game board is of 81 cells with 20 safe shells and 5 levels. Player makes a move once the dice rolls. A player can login to play with an email id.
 
 Rules and regulations for playing ASTACHEMMA
 
@@ -30,6 +31,16 @@ mongoDB
 mongoose -sessions
 Socket.io
 Nodemailer
+
+Functionalities:Landing page
+Login 
+Signup
+Video tutorial of game
+Chat window
+Game rules
+Player statistics
+2 player game
+Email notification for signup and forgot password
 
 Contact
 Email : gowthamnikhilesh32@gmail.com
